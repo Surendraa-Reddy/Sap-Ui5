@@ -1,0 +1,27 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="ui5.controller.home_view"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:tnt="sap.tnt">
+    <Page id="page1" title="{i18n>title}">
+    <Toolbar id="toolheader1" >
+     <Button id="btn11" icon="sap-icon://menu2" type="Transparent"/>
+      <ToolbarSpacer id = "toolbarSpacer11" />
+     <Text id ="textid11"  text="Login Page"></Text>
+      <ToolbarSpacer id = "toolbarSpacer12" />
+       <Button  id="btn12" text="Hi, {/Username}" type="Transparent"/>
+     </Toolbar>
+    <Text id="_IDGenText"  text=" This is a Second page"></Text>
+
+    
+     <footer>
+     <Bar id="_IDGenBar1" >
+     <contentLeft >
+     <Text id="_IDGenText11" text="Copyright@2026"/>
+        </contentLeft>
+     <contentRight>
+     <Text id="_IDGenText12"  text="Chinna"></Text>
+     </contentRight>
+
+     </Bar>
+     </footer>
+    </Page>
+</mvc:View>

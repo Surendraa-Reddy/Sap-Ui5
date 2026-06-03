@@ -1,0 +1,44 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="ui5.controller.home_view"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:tnt="sap.tnt">
+    <Page id="page" title="{i18n>title}">
+
+     <Toolbar id="toolheader" >
+     <Button id="btn1" icon="sap-icon://menu2" type="Transparent"/>
+      <ToolbarSpacer id = "toolbarSpacer1" />
+     <Text id ="textid1"  text="Login Page"></Text>
+      <ToolbarSpacer id = "toolbarSpacer2" />
+       <Button  id="btn2" text="Hi, Admin" type="Transparent"/>
+     </Toolbar>
+
+    
+        <!-- <Text
+            id="_IDGenText"
+            text="Hello World" /> -->
+
+     <content>
+     <VBox id="_IDGenVBox" class ="custform" fitContainer="true" >
+     <form:SimpleForm id="_IDGenSimpleForm" title="Login" editable="true" layout="ResponsiveGridLayout"
+     xmlns:form="sap.ui.layout.form">
+      <Label  id="label1" text="UserName "/>
+      <Input id="input1"  xmlns="sap.m" placeholder="Enter UserName"/>
+        <Label id="label2" text="Password "/>
+        <Input id="input2"   xmlns="sap.m" placeholder="Enter Password" type="Password"/>
+        <Button id="btn3" text="Login" type="Emphasized" press="onLoginPress"/>
+     </form:SimpleForm>
+     </VBox>
+     </content>
+
+     <footer>
+     <Bar id="_IDGenBar" >
+     <contentLeft >
+     <Text id="_IDGenText2" text="Copyright@2026"/>
+        </contentLeft>
+     <contentRight>
+     <Text id="_IDGenText3"  text="Chinna"></Text>
+     </contentRight>
+
+     </Bar>
+     </footer>
+    </Page>
+</mvc:View>

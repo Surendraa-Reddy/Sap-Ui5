@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+        src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-theme="sap_Belize"
+        data-sap-ui-resourceroots='{
+            "ui5demo":"./"
+        }'>
+    </script>
+
+    <script>
+        sap.ui.getCore().attachInit(function () {
+
+            var oView = sap.ui.view({
+                viewName: "ui5demo.Main",
+                type: sap.ui.core.mvc.ViewType.XML
+            });
+
+            oView.placeAt("content");
+
+        });
+    </script>
+</head>
+
+<body class="sapUiBody">
+    <div id="content"></div>
+</body>
+</html>
