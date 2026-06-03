@@ -10,6 +10,7 @@
        <Button  id="btn12" text="Hi, {/Username}" type="Transparent"/>
      </Toolbar>
     <Text id="_IDGenText"  text=" This is a Second page"></Text>
+    <Text id="Text11" text="This is a label"/>
 
     
      <footer>
