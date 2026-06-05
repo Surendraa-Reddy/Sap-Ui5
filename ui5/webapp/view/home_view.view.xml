@@ -16,7 +16,7 @@
             id="_IDGenText"
             text="Hello World" /> -->
 
-     <content>
+       <content>
      <VBox id="_IDGenVBox" class ="custform" fitContainer="true" >
      <form:SimpleForm id="_IDGenSimpleForm" title="Login" editable="true" layout="ResponsiveGridLayout"
      xmlns:form="sap.ui.layout.form">

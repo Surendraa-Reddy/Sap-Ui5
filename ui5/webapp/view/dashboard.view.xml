@@ -1,7 +1,7 @@
 <mvc:View xmlns:form="sap.ui.layout.form" controllerName="ui5.controller.home_view"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m" xmlns:tnt="sap.tnt">
-    <Page id="page1" title="{i18n>title}">
+    <Page id="page1" title="{i18n>title}" showNavButton="true" navButtonPress="onNavBack">
     <Toolbar id="toolheader1" >
      <Button id="btn11" icon="sap-icon://menu2" type="Transparent"/>
       <ToolbarSpacer id = "toolbarSpacer11" />

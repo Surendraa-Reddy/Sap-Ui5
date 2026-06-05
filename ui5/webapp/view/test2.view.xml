@@ -1,0 +1,139 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="ui5.controller.test1"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout">
+<Page  id="page22"  title="Ui5 Learning" showNavButton="true" navButtonPress="onTestPress1">
+<content>
+<!-- <Text id="text3" text="Hi Welcome to Sap Ui5"  textAlign="Center" width="100%"/> -->
+<Panel id="panel1" headerText="Employee Details" expandable="true" expanded="true">
+<l:Grid  id="grid1" defaultSpan="L6 M6" vSpacing ='0'>
+<l:content>
+<Label id="label4" text="Employee ID" class="sapUiTinyMarginTop"></Label>
+<Input id="input4" placeholder="Enter Employee ID"/>
+<Label id="label5" text="Employee Name" class="sapUiTinyMarginTop"></Label>
+<Input id="input5" placeholder="Enter Employee Name"/>
+<Label id="label6" text="Employee Skills" class="sapUiTinyMarginTop"></Label>
+<Input id="input6" placeholder="Enter Employee Skills"/>
+<Label id="label7" text="Employee Designation" class="sapUiTinyMarginTop"></Label>
+<Input id="input7" placeholder="Enter Employee Designation"/>
+<Label id="label8" text="Employee Department" class="sapUiTinyMarginTop"></Label>
+<Input id="input8" placeholder="Enter Employee Department"/>
+<Label id="label14" text="Employee Email" class="sapUiTinyMarginTop"></Label>
+<Input id="input14" placeholder="Enter Employee Email"/>
+</l:content>
+</l:Grid>
+</Panel>
+
+<Panel id="panel2" headerText="Employee Details (2 fields Per Row)" expandable="true">
+<l:Grid  id="grid2" defaultSpan="L3 M3" vSpacing ='0'>
+<l:content>
+<Label id="label9" text="Employee ID" class="sapUiTinyMarginTop"></Label>
+<Input id="input9" placeholder="Enter Employee ID"/>
+<Label id="label10" text="Employee Name" class="sapUiTinyMarginTop"></Label>
+<Input id="input10" placeholder="Enter Employee Name"/>
+<Label id="label11" text="Employee Skills" class="sapUiTinyMarginTop"></Label>
+<Input id="input11" placeholder="Enter Employee Skills"/>
+<Label id="label12" text="Employee Designation" class="sapUiTinyMarginTop"></Label>
+<Input id="input12" placeholder="Enter Employee Designation"/>
+<Label id="label13" text="Employee Department" class="sapUiTinyMarginTop"></Label>
+<Input id="input13" placeholder="Enter Employee Department"/>
+<Label id="label15" text="Employee Email" class="sapUiTinyMarginTop"></Label>
+<Input id="input15" placeholder="Enter Employee Email"/>
+</l:content>
+</l:Grid>
+</Panel>
+
+<Panel id="panel3" headerText="Employee Details (3 fields Per Row)" expandable="true">
+<l:Grid  id="grid16" defaultSpan="L2 M2" vSpacing ='0'>
+<l:content>
+<Label id="label16" text="Employee ID" class="sapUiTinyMarginTop"></Label>
+<Input id="input16" placeholder="Enter Employee ID"/>
+<Label id="label17" text="Employee Name" class="sapUiTinyMarginTop"></Label>
+<Input id="input17" placeholder="Enter Employee Name"/>
+<Label id="label18" text="Employee Skills" class="sapUiTinyMarginTop"></Label>
+<Input id="input18" placeholder="Enter Employee Skills"/>
+<Label id="label19" text="Employee Designation" class="sapUiTinyMarginTop"></Label>
+<Input id="input19" placeholder="Enter Employee Designation"/>
+<Label id="label20" text="Employee Department" class="sapUiTinyMarginTop"></Label>
+<Input id="input20" placeholder="Enter Employee Department"/>
+<Label id="label21" text="Employee Email" class="sapUiTinyMarginTop"></Label>
+<Input id="input21" placeholder="Enter Employee Email"/>
+</l:content>
+</l:Grid>
+</Panel>
+<Panel id="panel4" headerText="Zig Zag" >
+<l:Grid  id="grid17"  vSpacing ='0'>
+<l:content>
+<Label id="label22" text="Employee ID" class="sapUiTinyMarginTop">
+<layoutData>
+<l:GridData id="griddata1" span="L3 M3"></l:GridData>
+</layoutData>
+</Label>
+<Input id="input22" placeholder="Enter Employee ID">
+<layoutData>
+<l:GridData id="griddata2" span="L9 M9"></l:GridData>
+</layoutData>
+</Input>
+<Label id="label23" text="Employee Name" class="sapUiTinyMarginTop">
+<layoutData>
+<l:GridData id="griddata3" span="L3 M3"></l:GridData>
+</layoutData>
+</Label>
+<Input id="input23" placeholder="Enter Employee Name" >
+<layoutData>
+<l:GridData id="griddata4" span="L3 M3"></l:GridData>
+</layoutData>
+</Input>
+<Label id="label24" text="Employee Skills" class="sapUiTinyMarginTop">
+<layoutData>
+<l:GridData id="griddata5" span="L3 M3"></l:GridData>
+</layoutData>
+</Label>
+<Input id="input24" placeholder="Enter Employee Skills">
+<layoutData>
+<l:GridData id="griddata6" span="L3 M3"></l:GridData>
+</layoutData>
+</Input>
+<Label id="label25" text="Employee Designation" class="sapUiTinyMarginTop">
+<layoutData>
+<l:GridData id="griddata7" span="L3 M3"></l:GridData>
+</layoutData></Label>
+<Input id="input25" placeholder="Enter Employee Designation">
+<layoutData>
+<l:GridData id="griddata8" span="L3 M3"></l:GridData>
+</layoutData></Input>
+<Label id="label26" text="Employee Department" class="sapUiTinyMarginTop">
+<layoutData>
+<l:GridData id="griddata9" span="L3 M3"></l:GridData>
+</layoutData>
+</Label>
+<Input id="input26" placeholder="Enter Employee Department">
+<layoutData>
+<l:GridData id="griddata10" span="L3 M3"></l:GridData>
+</layoutData>
+</Input>
+<Label id="label27" text="Employee Email" class="sapUiTinyMarginTop">
+<layoutData>
+<l:GridData id="griddata11" span="L3 M3"></l:GridData>
+</layoutData></Label>
+<Input id="input27" placeholder="Enter Employee Email"> 
+<layoutData>
+<l:GridData id="griddata12" span="L9 M9"></l:GridData>
+</layoutData>
+</Input>   
+</l:content>
+</l:Grid>
+</Panel>
+
+</content>
+<footer>
+<Bar  id="bar1">
+<contentLeft>
+<Text id="text4" text="Copyright@2026"/>
+</contentLeft>
+<contentRight>
+<Text id="text5"  text="Chinna"></Text>
+</contentRight>
+</Bar>
+</footer>
+</Page>
+</mvc:View>

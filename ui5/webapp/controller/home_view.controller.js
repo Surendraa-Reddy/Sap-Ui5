@@ -23,6 +23,9 @@ sap.ui.define([
             oRouter.navTo("dashboard",{
                 name: Username
             });
+        },
+        onNavBack: function() {
+            history.go(-1);
         }
     });
 });

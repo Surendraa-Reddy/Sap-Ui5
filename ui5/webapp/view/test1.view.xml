@@ -1,0 +1,23 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="ui5.controller.test1"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m" xmlns:tnt="sap.tnt">
+<Page  id="page11"  title="Testing">
+<content>
+<Text id="text1" text="Hi Welcome To SapUi5" textAlign="Center" width="100%" class="sapMH1FontSize"/>
+<Label  id="label3" text="Name:" required="true" class="sapUiSmallMarginBegin"></Label>
+<Input  width="30%" id="input3" xmlns="sap.m" placeholder="Enter Your Name" class="sapUiTinyMarginBegin" enabled="true"/>
+<Button  id="btn33" text="Submit" press="onsubmit" class="sapUiTinyMarginBegin" type="Default"></Button>
+
+</content>
+<footer>
+<Bar  id="_IDGenBar11" >
+<contentLeft>
+<Text id="_IDGenText111" text="Copyright@2026"/>
+</contentLeft>
+<contentRight>
+<Text id="_IDGenText112"  text="Chinna"></Text>
+</contentRight>
+</Bar>
+</footer>
+</Page>
+</mvc:View>

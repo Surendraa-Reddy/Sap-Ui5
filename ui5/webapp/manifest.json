@@ -86,6 +86,20 @@
           "target": [
             "Targetdashboard"
           ]
+        },
+        {
+          "name": "test1",
+          "pattern": "test1",
+          "target": [
+            "Targettest1"
+          ]
+        },
+        {
+          "name": "test2",
+          "pattern": "test2",
+          "target": [
+            "Targettest2"
+          ]
         }
       ],
       "targets": {
@@ -96,6 +110,14 @@
         "Targetdashboard": {
           "id": "dashboard",
           "name": "dashboard"
+        },
+        "Targettest1": {
+          "id": "test1",
+          "name": "test1"
+        },
+        "Targettest2": {
+          "id": "test2",
+          "name": "test2"
         }
       }
     },
