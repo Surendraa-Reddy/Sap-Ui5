@@ -21,6 +21,21 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            // get the odata model object
+            var oModel = this.getModel();
+            var empModel = this.getModel("empModel");
+            // read the data from the odata service and set it to the empModel
+            oModel.read("/EmployeeSet", {
+                success: function (oData) {
+                    for (var i = 0; i < oData.results.length; i++) {
+                        oData.results[i].Sno = i + 1;
+                    }
+                    empModel.setData(oData);
+                },
+                error: function (oError) {
+                    console.log("Error reading data from OData service: ", oError);
+                }
+            });
         }
     });
 });

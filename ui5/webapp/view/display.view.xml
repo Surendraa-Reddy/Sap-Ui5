@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="ui5.controller.display"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+      xmlns:form="sap.ui.layout.form">
+
+    <Page title="Display Employees" showNavButton="true" navButtonPress="backtotest4">
+
+        <content>
+           <form:SimpleForm editable="false">
+
+    <form:content>
+
+        <Label text="Name"/>
+        <Text text="{Name}"/>
+
+        <Label text="Age"/>
+        <Text text="{Age}"/>
+
+        <Label text="Email"/>
+        <Text text="{Email}"/>
+
+        <Label text="Gender"/>
+        <Text text="{Gender}"/>
+
+        <Label text="Mobile"/>
+        <Text text="{Mobile}"/>
+
+    </form:content>
+
+</form:SimpleForm>
+        </content>
+
+    </Page>
+
+</mvc:View>

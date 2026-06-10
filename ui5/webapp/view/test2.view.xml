@@ -2,6 +2,11 @@
 xmlns:mvc="sap.ui.core.mvc"
 xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout">
 <Page  id="page22"  title="Ui5 Learning" showNavButton="true" navButtonPress="onTestPress1">
+<headerContent>
+        <Button
+            icon="sap-icon://navigation-right-arrow"
+            press="gototest3"/>
+    </headerContent>
 <content>
 <!-- <Text id="text3" text="Hi Welcome to Sap Ui5"  textAlign="Center" width="100%"/> -->
 <Panel id="panel1" headerText="Employee Details" expandable="true" expanded="true">

@@ -29,3 +29,9 @@ server:
       afterMiddleware: compression
       configuration:
         ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - path: /sap
+            url: http://s4hana2022.support.com:8001
+            client: '100'
+            destination: sapHana
+            

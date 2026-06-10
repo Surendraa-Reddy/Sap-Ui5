@@ -1,0 +1,63 @@
+<mvc:View
+    controllerName="ui5.controller.update"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page
+        title="Update Employee"
+        showNavButton="true"
+        navButtonPress="onBack">
+
+        <content>
+
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout">
+
+                <form:content>
+
+                    <Label text="Id"/>
+                    <Input value="{Id}" editable="false" width="30%"/>
+
+                    <Label text="Name"/>
+                    <Input value="{Name}" width="30%"/>
+
+                    <Label text="Age"/>
+                    <Input value="{Age}" width="30%"/>
+
+                    <Label text="Email"/>
+                    <Input value="{Email}" width="30%"/>
+
+                    <Label text="Gender"/>
+                    <Input value="{Gender}" width="30%"/>
+
+                    <Label text="Mobile"/>
+                    <Input value="{Mobile}" width="30%"/>
+
+                    <Label text="Address"/>
+                    <Input value="{Address}" width="30%"/>
+
+                </form:content>
+
+            </form:SimpleForm>
+
+            <Toolbar>
+                <ToolbarSpacer/>
+
+                <Button
+                    text="Update"
+                    type="Emphasized"
+                    press="onUpdateEmployee"/>
+
+                <Button
+                    text="Cancel"
+                    type="Reject"
+                    press="onBack"/>
+            </Toolbar>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

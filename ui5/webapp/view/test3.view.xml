@@ -1,0 +1,185 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    controllerName="ui5.controller.test1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page12"
+        title="Testing"
+     showNavButton="true" navButtonPress="backtotest2">
+     <headerContent>
+        <Button
+            icon="sap-icon://navigation-right-arrow"
+            press="gototest4"/>
+    </headerContent>
+        <content>
+            <!-- <Text id="text2" text="Hi Welcome To SapUi5" textAlign="Center" width="100%" class="sapMH1FontSize"/>
+<Label  id="label111" text="Name:" required="true" class="sapUiSmallMarginBegin"></Label>
+<Input  width="30%" id="input222" xmlns="sap.m" placeholder="Enter Your Name" class="sapUiTinyMarginBegin" enabled="true"/>
+<Button  id="btn22" text="Submit" press="onsubmit" class="sapUiTinyMarginBegin" type="Default"></Button> -->
+            <!-- <form:SimpleForm
+                id="simpleForm1"
+                title="Employee Details"
+                class="sapUiSmallMargin"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="5"
+                labelSpanM="5"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="3"
+                columnsM="2"
+            >
+                <form:content>
+                    <core:Title
+                        id="coreTitle1"
+                        text="Basic Details"
+                    />
+                    <Label id="label34" text="Id" required="true"></Label>
+                    <Input id="input34" xmlns="sap.m" placeholder="Enter Id"  class="sapUiTinyMarginBegin"></Input>
+                    <Label
+                        id="label111"
+                        text="Name"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input222"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Name"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                        maxLength="10"
+                    />
+                    <Label
+                        id="label28"
+                        text="Age"
+                        required="true"
+                       
+                    />
+                    <Input
+                        id="input28"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Age"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+                    <core:Title
+                        id="coreTitle2"
+                        text="Other Details"
+                    />
+                    <Label
+                        id="label29"
+                        text="Email"
+                        required="true"
+                       
+                    />
+                    <Input
+                        id="input29"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Email"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+
+                    <Label
+                        id="label30"
+                        text="Mobile"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input30"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Mobile"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                        maxLength="10"
+                    />
+                    <Label
+                        id="label31"
+                        text="Gender"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input31"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Gender"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+                    <core:Title
+                        id="coreTitle3"
+                        text="Address Details"
+                    />
+                    <Label
+                        id="label32"
+                        text="Address"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input32"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Address"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+                </form:content>
+            </form:SimpleForm>
+
+            <FlexBox
+                id="Hbox1"
+                justifyContent="Center"
+            >
+                <Button
+                    id="btn"
+                    text="Go"
+                    type="Accept"
+                    press="onsubmitgo"
+                />
+                <Button
+                    id="btnn"
+                    text="Reset"
+                    type="Reject"
+                    class="sapUiTinyMarginBegin"
+                />
+            </FlexBox> -->
+           <ObjectHeader id="objheader" title="Object Header" number="100000" numberUnit="INR" backgroundDesign="Solid">
+           <attributes>
+           <ObjectAttribute  id="objAr" title="Employee Id" text="001"></ObjectAttribute>
+            <ObjectAttribute  id="objArt" title="Employee Designation" text="CEO"></ObjectAttribute>
+           </attributes>
+           <statuses>
+           <ObjectStatus id="objstus" text="PERMANENT" state="Success"></ObjectStatus>
+           </statuses>
+           </ObjectHeader>
+           <IconTabBar id="iconbar">
+           <items>
+              <IconTabFilter id="filter1" text="employee" icon="sap-icon://employee"/>
+                <IconTabFilter id="filter2" text="Information" icon="sap-icon://information"/>
+           </items>
+           </IconTabBar>
+        </content>
+        <footer>
+            <Bar id="_IDGenBar12">
+                <contentLeft>
+                    <Text
+                        id="_IDGenText121"
+                        text="Copyright@2026"
+                    />
+                </contentLeft>
+                <contentRight>
+                    <Text
+                        id="_IDGenText122"
+                        text="Chinna"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

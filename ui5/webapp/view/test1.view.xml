@@ -2,6 +2,11 @@
 xmlns:mvc="sap.ui.core.mvc"
 xmlns="sap.m" xmlns:tnt="sap.tnt">
 <Page  id="page11"  title="Testing">
+<headerContent>
+        <Button
+            icon="sap-icon://navigation-right-arrow"
+            press="gototest2"/>
+    </headerContent>
 <content>
 <Text id="text1" text="Hi Welcome To SapUi5" textAlign="Center" width="100%" class="sapMH1FontSize"/>
 <Label  id="label3" text="Name:" required="true" class="sapUiSmallMarginBegin"></Label>

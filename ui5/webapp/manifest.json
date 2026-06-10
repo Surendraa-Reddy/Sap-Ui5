@@ -10,6 +10,16 @@
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
+    "dataSources": {
+      "ZODATA_EMPLOYEE_SRV_01": {
+        "uri": "/sap/opu/odata/sap/ZODATA_EMPLOYEE_SRV_01/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    },
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.25.0",
@@ -51,6 +61,17 @@
         "settings": {
           "bundleName": "ui5.i18n.i18n"
         }
+      },
+      "": {
+        "dataSource": "ZODATA_EMPLOYEE_SRV_01",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "useBatch": true
+        }
+      },
+      "empModel": {
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -100,6 +121,35 @@
           "target": [
             "Targettest2"
           ]
+        },
+        {
+          "name": "test3",
+          "pattern": "test3",
+          "target": [
+            "Targettest3"
+          ]
+        },
+        {
+          "name": "test4",
+          "pattern": "test4",
+          "target": [
+            "Targettest4"
+          ]
+        },
+        {
+          "pattern": "create",
+          "name": "create",
+          "target": "create"
+        },
+        {
+          "pattern": "update/{empId}",
+          "name": "update",
+          "target": "update"
+        },
+        {
+          "pattern": "display/{empId}",
+          "name": "display",
+          "target": "display"
         }
       ],
       "targets": {
@@ -118,6 +168,26 @@
         "Targettest2": {
           "id": "test2",
           "name": "test2"
+        },
+        "Targettest3": {
+          "id": "test3",
+          "name": "test3"
+        },
+        "Targettest4": {
+          "id": "test4",
+          "name": "test4"
+        },
+        "create": {
+          "id": "create",
+          "name": "create"
+        },
+        "update": {
+          "id": "update",
+          "name": "update"
+        },
+        "display": {
+          "id": "display",
+          "name": "display"
         }
       }
     },

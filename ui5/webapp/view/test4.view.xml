@@ -1,0 +1,269 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    controllerName="ui5.controller.test1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core">
+
+    <Page id="page13" title="Pull the data From Backend "  showNavButton="true" navButtonPress="backtotest3">
+   
+        <content>
+          <form:SimpleForm
+                id="simpleForm1"
+                title="Employee Details"
+                class="sapUiSmallMargin"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="5"
+                labelSpanM="5"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="3"
+                columnsM="2"
+            >
+                <form:content>
+                    <core:Title
+                        id="coreTitle1"
+                        text="Basic Details"
+                    />
+                    <Label id="label34" text="Id" required="true"></Label>
+                    <Input id="input34" xmlns="sap.m" placeholder="Enter Id"  class="sapUiTinyMarginBegin"></Input>
+                    <Label
+                        id="label111"
+                        text="Name"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input222"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Name"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                        maxLength="10"
+                    />
+                    <Label
+                        id="label28"
+                        text="Age"
+                        required="true"
+                       
+                    />
+                    <Input
+                        id="input28"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Age"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+                    <core:Title
+                        id="coreTitle2"
+                        text="Other Details"
+                    />
+                    <Label
+                        id="label29"
+                        text="Email"
+                        required="true"
+                       
+                    />
+                    <Input
+                        id="input29"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Email"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+
+                    <Label
+                        id="label30"
+                        text="Mobile"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input30"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Mobile"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                        maxLength="10"
+                    />
+                    <Label
+                        id="label31"
+                        text="Gender"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input31"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Gender"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+                    <core:Title
+                        id="coreTitle3"
+                        text="Address Details"
+                    />
+                    <Label
+                        id="label32"
+                        text="Address"
+                        required="true"
+                        
+                    />
+                    <Input
+                        id="input32"
+                        xmlns="sap.m"
+                        placeholder="Enter Your Address"
+                        class="sapUiTinyMarginBegin"
+                        enabled="true"
+                    />
+                </form:content>
+            </form:SimpleForm>
+
+            <FlexBox
+                id="Hbox1"
+                justifyContent="Center"
+            >
+                <Button
+                    id="btn"
+                    text="Go"
+                    type="Accept"
+                    press="onsubmitgo"
+                />
+                <Button
+                    id="btnn"
+                    text="Reset"
+                    type="Reject"
+                    class="sapUiTinyMarginBegin"
+                    press="onResetPress"
+                />
+            </FlexBox>
+            
+          <ScrollContainer id="scrollContainer1" vertical="true" horizontal="true">
+            <Table              
+                id="table1"
+                items="{/EmployeeSet}">
+                
+                <!-- <headerToolbar>
+                    <Toolbar>
+                        <Title text="Employee Details"/>  
+                    </Toolbar>
+                </headerToolbar>-->
+               <headerToolbar>
+    <OverflowToolbar>
+
+        <Title text="Employee Details" />
+
+        <ToolbarSpacer />
+
+        <Button
+            text="Create"
+            type="Accept"
+            press="onCreatePress" />
+
+        <!-- <Button
+            text="Update"
+            type="Emphasized"
+            press="onUpdatePress" /> -->
+
+        <!-- <Button
+            text="Display"
+            press="onDisplayPress" /> -->
+
+    </OverflowToolbar>
+</headerToolbar>
+              
+                <columns>
+                    <Column width="20rem"><Text text="Name"/></Column>
+                    <Column width="20rem"><Text text="Age"/></Column>
+                    <Column width="20rem"><Text text="Email"/></Column>
+                    <Column width="20rem"><Text text="Gender"/></Column>
+                    <Column width="20rem"><Text text="Mobile"/></Column>
+                    <Column width="20rem"><Text text="Action"/></Column>
+                </columns>
+               
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                          <!-- <Text text="{ 
+                           parts: [
+                          { path: 'Name' },
+                              { path: 'Gender' }
+                              ],
+                               formatter: '.f.formatName'
+                            }"/> -->
+                            <!-- <Text text="{Age}"/> -->
+                            <!-- <Text text="{Email}"/> -->
+                            <!-- <ObjectStatus  text="{Gender}" state="{path:'Gender',formatter:'.f.ColorGender'}"></ObjectStatus> -->
+                            
+                            <!-- <Text text="{Mobile}"/> -->
+                            <Text  text="{Name}"/>
+                            <Text text="{Age}"/>
+                            <Text text="{Email}"/>
+                            <Text text="{Gender}"/>
+                            <Text text="{Mobile}"/>
+
+                             <HBox>
+                <Button
+                    icon="sap-icon://edit"
+                    type="Default"
+                    press="onUpdatePress"/>
+
+                <Button
+                    icon="sap-icon://display"
+                     type="Default"
+                    class="sapUiTinyMarginBegin"
+                    press="onDisplayPress"/>
+                    <Button
+                      icon="sap-icon://delete"
+                      type="Reject"
+                      press="onDeletePress"/>
+            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+            </ScrollContainer>
+          <!-- <ScrollContainer id="scrollContainer1" vertical="true" horizontal="true">
+            <Table              
+                id="table1"
+                items="{empModel>/results}">
+                
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Employee Details"/>
+                    </Toolbar>
+                </headerToolbar>
+             
+                <columns>
+                    <Column width="20rem"><Text text="Sno"/></Column>
+                    <Column width="20rem"><Text text="Name"/></Column>
+                    <Column width="20rem"><Text text="Age"/></Column>
+                    <Column width="20rem"><Text text="Email"/></Column>
+                    <Column width="20rem"><Text text="Gender"/></Column>
+                    <Column width="20rem"><Text text="Mobile"/></Column>
+                    <Column width="20rem"><Text text="Address"/></Column>
+                </columns>
+               
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{empModel>Sno}"/>
+                            <Text text="{empModel>Name}"/>
+                            <Text text="{empModel>Age}"/>
+                            <Text text="{empModel>Email}"/>
+                            <Text text="{empModel>Gender}"/>
+                            <Text text="{empModel>Mobile}"/>
+                            <Text text="{empModel>Address}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+           </ScrollContainer> -->
+        </content>
+    </Page>
+
+</mvc:View>

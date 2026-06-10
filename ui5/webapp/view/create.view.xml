@@ -1,0 +1,71 @@
+<mvc:View
+    controllerName="ui5.controller.create"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page
+        title="Create Employee"
+        showNavButton="true"
+        navButtonPress="backToList">
+
+        <content>
+            <form:SimpleForm
+                id="createForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Employee Details"
+                class="sapUiMediumMargin"
+                labelSpanL="2"
+                labelSpanM="2"
+                columnsL="3"
+                columnsM="2">
+
+                <form:content>
+
+                    <Label text="Id" required="true"/>
+                    <Input id="inpId1" placeholder="Enter Id" width="50%"/>
+
+                    <Label text="Name" required="true"/>
+                    <Input id="inpName1" placeholder="Enter Name"  width="50%"/>
+
+                    <Label text="Age" required="true"/>
+                    <Input id="inpAge1" placeholder="Enter Age" width="50%"/>
+
+                    <Label text="Email" required="true"/>
+                    <Input id="inpEmail1" placeholder="Enter Email" width="50%"/>
+
+                    <Label text="Gender" required="true"/>
+                    <Input id="inpGender1" placeholder="Enter Gender" width="50%"/>
+
+                    <Label text="Mobile" required="true"/>
+                    <Input id="inpMobile1" placeholder="Enter Mobile" width="50%"/>
+
+                    <Label text="Address" required="true"/>
+                    <Input id="inpAddress1" placeholder="Enter Address" width="50%"/>
+
+                </form:content>
+
+            </form:SimpleForm>
+
+            <FlexBox
+                justifyContent="Center"
+                class="sapUiSmallMargin">
+
+                <Button
+                    text="Save"
+                    type="Accept"
+                    press="onSave"/>
+
+                <Button
+                    text="Reset"
+                    type="Reject"
+                    class="sapUiTinyMarginBegin"
+                    press="onReset"/>
+
+            </FlexBox>
+
+        </content>
+    </Page>
+
+</mvc:View>
