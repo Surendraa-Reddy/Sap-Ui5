@@ -15,9 +15,9 @@ sap.ui.define([
     return Name;
 },
         ColorGender: function(Gender){
-            if(Gender === "MALE"){
+            if(Gender === "MALE" || Gender === "Male" || Gender === "male"){
                 return "Success";
-            }else if(Gender === "FEMALE"){
+            }else if(Gender === "FEMALE" || Gender === "Female" || Gender === "female"){
                 return "Error";
             }
         }

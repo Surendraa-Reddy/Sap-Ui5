@@ -201,7 +201,8 @@
                             <Text  text="{Name}"/>
                             <Text text="{Age}"/>
                             <Text text="{Email}"/>
-                            <Text text="{Gender}"/>
+                            <ObjectStatus  text="{Gender}" state="{path:'Gender',formatter:'.f.ColorGender'}"></ObjectStatus>
+                            <!-- <Text text="{Gender}"/> -->
                             <Text text="{Mobile}"/>
 
                              <HBox>

@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "ui5/model/formatter"
 ], function (Controller, MessageToast, MessageBox) {
     "use strict";
 
@@ -39,6 +40,7 @@ sap.ui.define([
             oModel.update(sPath, oData, {
 
                 success: function () {
+                        oModel.refresh(true);
                     MessageToast.show("Employee Updated Successfully");
                 },
 

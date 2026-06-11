@@ -8,7 +8,7 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("ui5.controller.test1", {
-        // f: formatter,
+        f: formatter,
         onInit: function () {
 
             // var oRouter = this.getOwnerComponent().getRouter();
