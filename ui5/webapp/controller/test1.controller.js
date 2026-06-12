@@ -2,9 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "ui5/model/formatter",
     "sap/m/MessageToast",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+    "sap/ui/export/Spreadsheet",
+    "sap/ui/export/library"
 
-], (Controller, formatter, MessageToast, MessageBox) => {
+], (Controller, formatter, MessageToast, MessageBox, Filter, FilterOperator, Spreadsheet, library) => {
     "use strict";
 
     return Controller.extend("ui5.controller.test1", {
@@ -59,8 +63,40 @@ sap.ui.define([
         onCreatePress: function () {
             this.getOwnerComponent().getRouter().navTo("create");
         },
+        onSearch: function () {
 
-       
+            var Name = this.byId("searchName").getValue();
+            var Age = this.byId("searchAge").getValue();
+
+            var aFilters = [];
+
+            if (Name) {
+                aFilters.push(
+                    new Filter("Name", FilterOperator.EQ, Name)
+                );
+            }
+
+            if (Age) {
+                aFilters.push(
+                    new Filter("Age", FilterOperator.EQ, Age)
+                );
+            }
+
+            this.byId("table1")
+                .getBinding("items")
+                .filter(aFilters);
+        },
+        onClearSearch: function () {
+
+            this.byId("searchName").setValue("");
+            this.byId("searchAge").setValue("");
+
+            this.byId("table1")
+                .getBinding("items")
+                .filter([]);
+        },
+
+
         onUpdatePress: function (oEvent) {
 
             var oContext = oEvent.getSource().getBindingContext();
@@ -71,7 +107,7 @@ sap.ui.define([
                 empId: sEmpId
             });
         },
-        
+
         onDisplayPress: function (oEvent) {
 
             var oContext = oEvent.getSource().getBindingContext();
@@ -85,7 +121,7 @@ sap.ui.define([
         onDeletePress: function (oEvent) {
 
             var oContext = oEvent.getSource().getBindingContext();
-            var sPath = oContext.getPath(); 
+            var sPath = oContext.getPath();
             var oModel = this.getView().getModel();
 
             sap.m.MessageBox.confirm(
@@ -140,6 +176,69 @@ sap.ui.define([
                 oInput.setValueStateText("");
             }.bind(this));
 
+
+
+        },
+        onExport: function () {
+
+            var oTable = this.byId("table1");
+            var oBinding = oTable.getBinding("items");
+
+            var aData = [];
+
+            oBinding.getContexts().forEach(function (oContext) {
+                aData.push(oContext.getObject());
+            });
+            aData.sort(function (a, b) {
+                return a.Id - b.Id;
+            });
+
+            var aCols = [
+                // {
+                //     label: "Id",
+                //     property: "Id",
+                //     type: "Number"
+                // },
+                {
+                    label: "Name",
+                    property: "Name"
+                },
+                {
+                    label: "Age",
+                    property: "Age"
+                },
+                {
+                    label: "Email",
+                    property: "Email"
+                },
+                {
+                    label: "Gender",
+                    property: "Gender"
+                },
+                {
+                    label: "Mobile",
+                    property: "Mobile"
+                },
+                {
+                    label: "Address",
+                    property: "Address"
+                }
+            ];
+
+            var oSettings = {
+                workbook: {
+                    columns: aCols
+                },
+                dataSource: aData,
+                fileName: "EmployeeData.xlsx"
+            };
+
+            var oSheet = new sap.ui.export.Spreadsheet(oSettings);
+
+            oSheet.build()
+                .finally(function () {
+                    oSheet.destroy();
+                });
         },
 
         // onUpdatePress: function (oEvent) {
@@ -281,13 +380,13 @@ sap.ui.define([
                 var oModel = this.getView().getModel();
 
                 oModel.create("/EmployeeSet", oPayload, {
-                    success: function () {
-                        sap.m.MessageToast.show("Employee Saved Successfully");
+                    success: function (req, res) {
+                        sap.m.MessageBox.success("Employee Saved Successfully");
                         oModel.refresh(true);
 
                     },
                     error: function (oError) {
-                        sap.m.MessageBox.error("Error while saving data");
+                        sap.m.MessageBox.error(JSON.parse(oError.responseText).error.message.value);
                         console.log(oError);
                     }
                 });

@@ -151,28 +151,52 @@
                     </Toolbar>
                 </headerToolbar>-->
                <headerToolbar>
-    <OverflowToolbar>
+   <OverflowToolbar>
 
-        <Title text="Employee Details" />
+    <Title text="Employee Details" />
 
-        <ToolbarSpacer />
+    <ToolbarSpacer  width="30%" />
 
+    <Input
+        id="searchName"
+        width="20%"
+        placeholder="Search Name" />
+
+    <Input
+        id="searchAge"
+        width="120px"
+        placeholder="Search Age"
+        class="sapUiTinyMarginBegin" />
+
+    <Button
+        text="Search"
+        icon="sap-icon://search"
+        type="Emphasized"
+        press="onSearch"
+        class="sapUiTinyMarginBegin" />
+
+    <Button
+        text="Clear"
+        icon="sap-icon://decline"
+        press="onClearSearch"
+        class="sapUiTinyMarginBegin" />
         <Button
-            text="Create"
-            type="Accept"
-            press="onCreatePress" />
+    text="Export"
+    icon="sap-icon://excel-attachment"
+    type="Transparent"
+    press="onExport"/>
+    <Button
+        text="Create"
+        type="Accept"
+        press="onCreatePress"
+        class="sapUiTinyMarginBegin"
+        />
+   
+</OverflowToolbar>
+ 
 
-        <!-- <Button
-            text="Update"
-            type="Emphasized"
-            press="onUpdatePress" /> -->
-
-        <!-- <Button
-            text="Display"
-            press="onDisplayPress" /> -->
-
-    </OverflowToolbar>
 </headerToolbar>
+
               
                 <columns>
                     <Column width="20rem"><Text text="Name"/></Column>

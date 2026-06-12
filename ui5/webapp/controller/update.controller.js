@@ -41,7 +41,9 @@ sap.ui.define([
 
                 success: function () {
                         oModel.refresh(true);
-                    MessageToast.show("Employee Updated Successfully");
+                        
+                    MessageBox.success("Employee Updated Successfully");
+                   
                 },
 
                 error: function () {

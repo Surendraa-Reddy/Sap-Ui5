@@ -142,12 +142,12 @@ sap.ui.define([
 
                 oModel.create("/EmployeeSet", oPayload, {
                     success: function () {
-                        sap.m.MessageToast.show("Employee Saved Successfully");
+                        sap.m.MessageBox.success("Employee Saved Successfully");
                         oModel.refresh(true);
                         that.getOwnerComponent().getRouter().navTo("test4");
                     },
                     error: function (oError) {
-                        sap.m.MessageBox.error("Error while saving data");
+                        sap.m.MessageBox.error(JSON.parse(oError.responseText).error.message.value);
                         console.log(oError);
                     }
                 });
@@ -174,6 +174,8 @@ sap.ui.define([
                 oInput.setValueState("None");
                 oInput.setValueStateText("");
             }.bind(this));
+
+            this.getOwnerComponent().getRouter().navTo("test4");
 
         }
 
