@@ -8,6 +8,8 @@ sap.ui.define([
     "sap/ui/export/Spreadsheet",
     "sap/ui/export/library"
 
+
+
 ], (Controller, formatter, MessageToast, MessageBox, Filter, FilterOperator, Spreadsheet, library) => {
     "use strict";
 
@@ -392,6 +394,82 @@ sap.ui.define([
                 });
             }
 
-        }
+        },
+        onFileChange: function (oEvent) {
+            var oFile = oEvent.getParameter("files")[0];
+
+            if (!oFile) {
+                return;
+            }
+
+            this._oSelectedFile = oFile;
+
+            MessageToast.show("File Selected: " + oFile.name);
+        },
+        onBulkUpload: function () {
+            var oFile = this._oSelectedFile;
+
+            if (!oFile) {
+                MessageBox.error("Please select an Excel file");
+                return;
+            }
+
+            var reader = new FileReader();
+            var that = this;
+
+            reader.onload = function (e) {
+
+                var data = e.target.result;
+
+                var workbook = XLSX.read(data, {
+                    type: "binary"
+                });
+
+                var sheetName = workbook.SheetNames[0];
+
+                var excelData = XLSX.utils.sheet_to_json(
+                    workbook.Sheets[sheetName]
+                );
+
+                console.log(excelData);
+
+                that._saveExcelData(excelData);
+            };
+
+            reader.readAsBinaryString(oFile);
+        },
+        _saveExcelData: function (aData) {
+
+            var oModel = this.getView().getModel();
+
+            var iSuccess = 0;
+            var iError = 0;
+
+            aData.forEach(function (row) {
+
+                var oPayload = {
+                    Id: parseInt(row.Id, 10),
+                    Name: String(row.Name),
+                    Age: String(row.Age),
+                    Email: String(row.Email),
+                    Gender: String(row.Gender),
+                    Mobile: String(row.Mobile),
+                    Address: String(row.Address)
+                };
+
+                oModel.create("/EmployeeSet", oPayload, {
+
+                    success: function () {
+                        iSuccess++;
+                    },
+
+                    error: function () {
+                        iError++;
+                    }
+                });
+            });
+
+            MessageToast.show("Bulk Upload Started");
+        },
     });
 });

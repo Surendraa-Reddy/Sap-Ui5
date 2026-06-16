@@ -4,7 +4,8 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:tnt="sap.tnt"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:unified="sap.ui.unified">
 
     <Page id="page13" title="Pull the data From Backend "  showNavButton="true" navButtonPress="backtotest3">
    
@@ -20,9 +21,23 @@
                 emptySpanL="0"
                 emptySpanM="0"
                 columnsL="3"
-                columnsM="2"
+                columnsM="2" 
+                
             >
                 <form:content>
+                   <core:Title text="Bulk Upload" />
+
+        <unified:FileUploader
+            id="fileUploader"
+            width="400px"
+            fileType="xlsx,xls"
+            change="onFileChange" />
+
+        <Button
+            text="Bulk Upload"
+            icon="sap-icon://excel-attachment"
+            type="Accept"
+            press="onBulkUpload" />
                     <core:Title
                         id="coreTitle1"
                         text="Basic Details"
@@ -56,10 +71,10 @@
                         class="sapUiTinyMarginBegin"
                         enabled="true"
                     />
-                    <core:Title
+                    <!-- <core:Title
                         id="coreTitle2"
                         text="Other Details"
-                    />
+                    /> -->
                     <Label
                         id="label29"
                         text="Email"
@@ -101,10 +116,10 @@
                         class="sapUiTinyMarginBegin"
                         enabled="true"
                     />
-                    <core:Title
+                    <!-- <core:Title
                         id="coreTitle3"
                         text="Address Details"
-                    />
+                    /> -->
                     <Label
                         id="label32"
                         text="Address"
