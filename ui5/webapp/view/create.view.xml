@@ -48,6 +48,55 @@
 
             </form:SimpleForm>
 
+            <Table id="projectTable1"  items="{prjModel>/projects}" headerText="Projects" >
+
+            <headerToolbar>
+                <Toolbar>
+                    <Title text="Projects"/>
+                
+                <ToolbarSpacer></ToolbarSpacer>
+                <Button text="Add Project" type="Emphasized" press="onAddProject
+                "/> 
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+            <Column >
+                <Text text="Id"/>
+            </Column>
+            <Column >
+                <Text text="Project Name"/>
+            </Column>
+            <Column >
+                <Text text="Project Code"/>
+            </Column>
+            <Column >
+                <Text text="Client"/>
+            </Column>
+            <Column >
+                <Text text="Project Description"/>
+            </Column>
+            <Column >
+                <Text text="Team Size"/>
+            </Column>
+             <Column >
+                <Text text="Delete"/>
+            </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Input value="{prjModel>Id}"/>
+                        <Input value="{prjModel>ProjectName}"/>
+                        <Input value="{prjModel>PrjCode}"/>
+                        <Input value="{prjModel>Client}"/>
+                        <Input value="{prjModel>PrjDescription}"/>
+                        <Input value="{prjModel>TeamSize}"/>
+                        <Button icon="sap-icon://delete" type="Reject" press="onDeleteProject"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+            </Table>
+
             <FlexBox
                 justifyContent="Center"
                 class="sapUiSmallMargin">

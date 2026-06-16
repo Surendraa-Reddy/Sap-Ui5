@@ -439,14 +439,13 @@ sap.ui.define([
             reader.readAsBinaryString(oFile);
         },
         _saveExcelData: function (aData) {
-
             var oModel = this.getView().getModel();
+            oModel.setUseBatch(false);
 
             var iSuccess = 0;
             var iError = 0;
 
             aData.forEach(function (row) {
-
                 var oPayload = {
                     Id: parseInt(row.Id, 10),
                     Name: String(row.Name),
@@ -458,11 +457,9 @@ sap.ui.define([
                 };
 
                 oModel.create("/EmployeeSet", oPayload, {
-
                     success: function () {
                         iSuccess++;
                     },
-
                     error: function () {
                         iError++;
                     }
@@ -470,6 +467,7 @@ sap.ui.define([
             });
 
             MessageToast.show("Bulk Upload Started");
-        },
+        }
+
     });
 });

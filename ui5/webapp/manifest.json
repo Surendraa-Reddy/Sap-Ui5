@@ -72,6 +72,12 @@
       },
       "empModel": {
         "type": "sap.ui.model.json.JSONModel"
+      },
+      "prjModel": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "editprjModel": {
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {

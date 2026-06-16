@@ -8,7 +8,26 @@ sap.ui.define([
     return Controller.extend("ui5.controller.create", {
 
         onInit: function () {
-
+            this.prjModel = this.getOwnerComponent().getModel("prjModel");
+            this.prjModel.setData({
+                projects: []
+            });
+        },
+        onAddProject: function () {
+            this.prjModel.getData().projects.push({
+                Id: "",
+                PrjCode: "",
+                ProjectName: "",
+                Client: "",
+                PrjDescription: "",
+                TeamSize: 0
+            });
+            this.prjModel.refresh();
+        },
+        onDeleteProject: function (oEvent) {
+            var index = oEvent.getSource().getBindingContext("prjModel").getPath().split("/")[2];
+            this.prjModel.getData().projects.splice(index, 1);
+            this.prjModel.refresh();
         },
 
         onSave: function () {
@@ -125,6 +144,10 @@ sap.ui.define([
                 /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email) &&
                 /^[0-9]{10}$/.test(Mobile)
             ) {
+                this.prjModel.getData().projects.forEach(function (oProject) {
+                    oProject.Id = parseInt(oProject.Id, 10);
+                    oProject.TeamSize = parseInt(oProject.TeamSize, 10);
+                });
 
                 var oPayload = {
                     Id: parseInt(Id, 10),
@@ -133,13 +156,15 @@ sap.ui.define([
                     Email: Email,
                     Gender: Gender,
                     Mobile: Mobile,
-                    Address: Address
+                    Address: Address,
+                    toprojects: this.prjModel.getData().projects
                 };
 
                 var oModel = this.getView().getModel();
 
                 var that = this; // Store reference to 'this' for use in callbacks
-
+                //console.log(oPayload);
+               // console.log(JSON.stringify(oPayload, null, 2));
                 oModel.create("/EmployeeSet", oPayload, {
                     success: function () {
                         sap.m.MessageBox.success("Employee Saved Successfully");

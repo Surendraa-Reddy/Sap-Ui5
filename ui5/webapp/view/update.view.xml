@@ -41,6 +41,56 @@
                 </form:content>
 
             </form:SimpleForm>
+             <Table id="projectTable2"  items="{editprjModel>/results}" headerText="Projects" >
+
+            <headerToolbar>
+                <Toolbar>
+                    <Title text=" Edit Projects"/>
+                
+                <ToolbarSpacer></ToolbarSpacer>
+                <Button
+                   icon="sap-icon://add"
+                   type="Emphasized"
+                   press="onAddProject"/>
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+            <Column >
+                <Text text="Id"/>
+            </Column>
+            <Column >
+                <Text text="Project Name"/>
+            </Column>
+            <Column >
+                <Text text="Project Code"/>
+            </Column>
+            <Column >
+                <Text text="Client"/>
+            </Column>
+            <Column >
+                <Text text="Project Description"/>
+            </Column>
+            <Column >
+                <Text text="Team Size"/>
+            </Column>
+             <Column >
+                <Text text="Delete"/>
+            </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Input value="{editprjModel>Id}"/>
+                        <Input value="{editprjModel>ProjectName}"/>
+                        <Input value="{editprjModel>PrjCode}"/>
+                        <Input value="{editprjModel>Client}"/>
+                        <Input value="{editprjModel>PrjDescription}"/>
+                        <Input value="{editprjModel>TeamSize}"/>
+                        <Button icon="sap-icon://delete" type="Reject" press="onDeleteProject"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+            </Table>
 
             <Toolbar>
                 <ToolbarSpacer/>

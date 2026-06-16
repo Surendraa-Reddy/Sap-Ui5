@@ -7,6 +7,7 @@
     <Page title="Display Employees" showNavButton="true" navButtonPress="backtotest4">
 
         <content>
+        
            <form:SimpleForm editable="false">
 
     <form:content>
@@ -29,6 +30,41 @@
     </form:content>
 
 </form:SimpleForm>
+<ScrollContainer  vertical="true" horizontal="true">
+<Table  id="projectTable" items="{toprojects}" headerText="Projects" >
+    <columns>
+    <Column width="20rem"> 
+        <Text text="Project Code"/>
+    </Column>
+    <Column  width="20rem">
+        <Text text="Project Name"/>
+    </Column>
+    <Column width="20rem">
+        <Text text="Client"/>
+    </Column>
+    <Column  width="30rem">
+        <Text text="Project Description"/>
+    </Column>
+    <Column width="20rem">
+        <Text text="Team Size"/>
+    </Column>
+    </columns>
+    <items>
+        <ColumnListItem>
+            <cells>
+                <Text text="{PrjCode}"/>
+                <Text text="{ProjectName}"/>
+                <Text text="{Client}"/>
+                <Text text="{PrjDescription}"/>
+                <Text text="{TeamSize}"/>
+            </cells>
+        </ColumnListItem>
+    </items>
+    
+</Table>
+</ScrollContainer>
+
+
         </content>
 
     </Page>
