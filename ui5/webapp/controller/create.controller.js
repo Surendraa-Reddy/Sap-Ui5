@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
-    "sap/m/MessageToast"
-], function (Controller, MessageBox, MessageToast) {
+    "sap/m/MessageToast",
+    "sap/ui/unified/FileUploaderParameter"
+], function (Controller, MessageBox, MessageToast, FileUploaderParameter) {
     "use strict";
 
     return Controller.extend("ui5.controller.create", {
@@ -164,7 +165,7 @@ sap.ui.define([
 
                 var that = this; // Store reference to 'this' for use in callbacks
                 //console.log(oPayload);
-               // console.log(JSON.stringify(oPayload, null, 2));
+                // console.log(JSON.stringify(oPayload, null, 2));
                 oModel.create("/EmployeeSet", oPayload, {
                     success: function () {
                         sap.m.MessageBox.success("Employee Saved Successfully");
@@ -202,6 +203,39 @@ sap.ui.define([
 
             this.getOwnerComponent().getRouter().navTo("test4");
 
+        },
+        onFileChange: function (oEvent) {
+            this.fileName = oEvent.getParameter("files")[0].name;
+            this.fileType = oEvent.getParameter("files")[0].type;
+
+        },
+        onUploadfile: function () {
+            var oFileUploader = this.getView().byId("fileUploader1");
+            var Id = this.getView().byId("inpId1").getValue();
+            var slug = Id + "_" + this.fileName;
+
+            oFileUploader.addHeaderParamete(new FileUploaderParameter({
+                name: "slug",
+                value: slug
+            }));
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "content-type",
+                value: this.fileType
+            }));
+            this.getOwnerComponent().getModel().refreshSecurityToken ();
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "x-csrf-token",
+                value: this.getOwnerComponent().getModel().getHeaders()["x-csrf-token"]
+            }));
+            oFileUploader.upload();
+        },
+        onUploadComplete: function (oEvent) {
+            var status = oEvent.getParameter("status");
+            if (status === 201 || status === 202 || status === 204) {
+                MessageToast.show("File uploaded successfully");
+            } else {
+                MessageBox.error("File upload failed with status: " + status);
+            }
         }
 
     });

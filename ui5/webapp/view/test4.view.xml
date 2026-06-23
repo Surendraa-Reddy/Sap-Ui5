@@ -158,7 +158,8 @@
           <ScrollContainer id="scrollContainer1" vertical="true" horizontal="true">
             <Table              
                 id="table1"
-                items="{/EmployeeSet}">
+                items="{/EmployeeSet}"
+                >
                 
                 <!-- <headerToolbar>
                     <Toolbar>

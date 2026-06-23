@@ -2,7 +2,9 @@
     controllerName="ui5.controller.create"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:form="sap.ui.layout.form">
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core">
 
     <Page
         title="Create Employee"
@@ -113,6 +115,27 @@
                     press="onReset"/>
 
             </FlexBox>
+
+
+           <form:SimpleForm
+                id="UploadForm1"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Upload Employee Image"
+                class="sapUiMediumMargin"
+                labelSpanL="4"
+                labelSpanM="4"
+                columnsL="3"
+                columnsM="3">
+                <form:content>
+              
+                    <Label text="Upload Employee Image" required="true"/>
+                    <u:FileUploader id="fileUploader1" name="myFileUpload" uploadUrl="/sap/opu/odata/sap/ZODATA_EMPLOYEE_SRV_01/PhotosSet" sendXHR="true" useMultipart="false"
+                     change="onFileChange" uploadComplete="onUploadComplete"/>
+                    <Button  id="btnUpload1" text="Upload" press="onUploadfile" type="Emphasized" width="30%"/>
+
+                </form:content>
+                </form:SimpleForm>
 
         </content>
     </Page>

@@ -18,7 +18,7 @@ sap.ui.define([
         _onObjectMatched: function (oEvent) {
 
             var sEmpId = oEvent.getParameter("arguments").empId;
-              //console.log("Employee ID:", sEmpId); // Debugging statement to check the value of sEmpId
+              //console.log("Employee ID:", sEmpId); 
             this.getView().bindElement({
                 path: "/EmployeeSet(" + sEmpId + ")"
             });

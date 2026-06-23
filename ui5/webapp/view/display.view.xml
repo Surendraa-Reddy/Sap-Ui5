@@ -9,9 +9,14 @@
         <content>
         
            <form:SimpleForm editable="false">
+                  
+                   <Avatar  id="avatar" src="/sap/opu/odata/sap/ZODATA_EMPLOYEE_SRV_01/PhotosSet({Id})/$value" displaySize="L" visible="true"></Avatar>
+                   
+                  
 
     <form:content>
-
+         <Label text="Id"/>
+        <Text text="{Id}"/>
         <Label text="Name"/>
         <Text text="{Name}"/>
 

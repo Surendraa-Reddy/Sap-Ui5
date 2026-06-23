@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
     "sap/m/MessageBox",
-    "ui5/model/formatter"
-], function (Controller, MessageToast, MessageBox) {
+    "ui5/model/formatter",
+    "sap/ui/unified/FileUploaderParameter"
+], function (Controller, MessageToast, MessageBox, formatter, FileUploaderParameter) {
     "use strict";
 
     return Controller.extend("ui5.controller.update", {
@@ -44,7 +45,7 @@ sap.ui.define([
             var oModel = this.getView().getModel();
 
             oModel.read("/EmployeeSet(" + Id + ")/toprojects", {
-              //  console.log("Calling:", "/EmployeeSet(" + Id + ")/toprojects");
+                //  console.log("Calling:", "/EmployeeSet(" + Id + ")/toprojects");
 
                 success: function (oData) {
 
@@ -61,8 +62,8 @@ sap.ui.define([
 
                 error: function (oError) {
 
-                    console.log("ERROR");
-                    console.log(oError);
+                    //  console.log("ERROR");
+                    // console.log(oError);
 
                 }
             });
@@ -128,7 +129,7 @@ sap.ui.define([
 
                 success: function () {
                     console.log("Projects Data:", oPayload);
-                  //  console.log("Results:", oData.results);
+                    //  console.log("Results:", oData.results);
 
 
                     MessageBox.success("Employee & Projects Updated Successfully");
@@ -153,6 +154,41 @@ sap.ui.define([
             this.getOwnerComponent()
                 .getRouter()
                 .navTo("test4");
+        },
+        onFileChange: function (oEvent) {
+            this.fileName = oEvent.getParameter("files")[0].name;
+            this.fileType = oEvent.getParameter("files")[0].type;
+
+        },
+        onUploadfile: function () {
+            var oFileUploader = this.getView().byId("fileUploader2");
+            var Id = this.getView().byId("inpId").getValue();
+            var slug = Id + "," + this.fileName;
+
+            oFileUploader.removeAllHeaderParameters();
+
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "slug",
+                value: slug
+            }));
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "content-type",
+                value: this.fileType
+            }));
+            this.getOwnerComponent().getModel().refreshSecurityToken();
+            oFileUploader.addHeaderParameter(new FileUploaderParameter({
+                name: "x-csrf-token",
+                value: this.getOwnerComponent().getModel().getHeaders()["x-csrf-token"]
+            }));
+            oFileUploader.upload();
+        },
+        onUploadComplete: function (oEvent) {
+            var status = oEvent.getParameter("status");
+            if (status === 201 || status === 202 || status === 204) {
+                MessageBox.success("File uploaded successfully");
+            } else {
+                MessageBox.error("File upload failed with status: " + status);
+            }
         }
 
     });
