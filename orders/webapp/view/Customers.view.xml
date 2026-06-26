@@ -1,0 +1,108 @@
+<mvc:View
+    controllerName="orders.controller.Customers"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Customers" class="sapUiResponsiveContentPadding">
+    <!-- <HeaderContainer >
+     <content>
+        <Button
+            text="Employees"
+            icon="sap-icon://employee"
+            type="Transparent"
+            press=".onNavigateToEmployees" />   
+     </content>
+    </HeaderContainer> -->
+    <customHeader>
+  <Bar >
+  <contentLeft>
+    <Title text="Customers" level="H2" />
+  </contentLeft>
+  <contentRight>
+  <Button
+            text="Employees"
+            icon="sap-icon://employee"
+            type="Transparent"
+            press=".onNavigateToEmployees" /> 
+
+  </contentRight>
+  </Bar>
+    </customHeader>
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <SearchField
+                    id="customerSearch"
+                    width="100%"
+                    placeholder="Search by Customer ID, Company Name, Contact Name or Country"
+                    liveChange=".onSearchCustomers"
+                    search=".onSearchCustomers" />
+
+                <Table
+                    id="customersTable"
+                    items="{/Customers}"
+                    growing="true"
+                    growingThreshold="20"
+                    growingScrollToLoad="true"
+                    inset="false"
+                    mode="None"
+                    noDataText="No customers found">
+
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Customer List" level="H2"/>
+                            <ToolbarSpacer/>
+                            <Button
+                                text="Refresh"
+                                icon="sap-icon://refresh"
+                                press=".onRefresh" />
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <columns>
+                        <Column width="8rem">
+                            <Text text="Customer ID" />
+                        </Column>
+                        <Column width="14rem">
+                            <Text text="Company Name" />
+                        </Column>
+                        <Column width="12rem">
+                            <Text text="Contact Name" />
+                        </Column>
+                        <Column width="10rem">
+                            <Text text="Country" />
+                        </Column>
+                        <Column width="8rem" hAlign="Center">
+                            <Text text="Action" />
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <ObjectIdentifier
+                                    title="{CustomerID}"
+                                    text="Customer ID" />
+
+                                <ObjectIdentifier
+                                    title="{CompanyName}"
+                                    text="{City}" />
+
+                                <Text text="{ContactName}" />
+
+                                <ObjectStatus
+                                    text="{Country}"
+                                    state="Information" />
+
+                                <Button
+                                    text="View"
+                                    type="Transparent"
+                                    icon="sap-icon://navigation-right-arrow"
+                                    press=".onViewCustomer" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

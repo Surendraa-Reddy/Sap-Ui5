@@ -1,0 +1,105 @@
+<mvc:View
+    controllerName="orders.controller.OrderDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page
+        id="orderDetailsPage"
+        title="Order Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <ObjectHeader
+                    title="Order {OrderID}"
+                    number="{OrderID}"
+                    intro="Northwind Order">
+                    <attributes>
+                        <ObjectAttribute text="Customer ID: {CustomerID}" />
+                        <ObjectAttribute text="Employee ID: {EmployeeID}" />
+                        <ObjectAttribute text="Ship Via: {ShipVia}" />
+                    </attributes>
+                </ObjectHeader>
+
+                <f:SimpleForm
+                    id="orderForm"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="1">
+
+                    <f:content>
+                        <Label text="Order ID" />
+                        <Text text="{OrderID}" />
+
+                        <Label text="Customer ID" />
+                        <Text text="{CustomerID}" />
+
+                        <Label text="Employee ID" />
+                        <Text text="{EmployeeID}" />
+
+                        <Label text="Order Date" />
+                        <Text text="{
+                            path: 'OrderDate',
+                            type: 'sap.ui.model.type.DateTime',
+                            formatOptions: {
+                                style: 'medium'
+                            }
+                        }" />
+
+                        <Label text="Required Date" />
+                        <Text text="{
+                            path: 'RequiredDate',
+                            type: 'sap.ui.model.type.DateTime',
+                            formatOptions: {
+                                style: 'medium'
+                            }
+                        }" />
+
+                        <Label text="Shipped Date" />
+                        <Text text="{
+                            path: 'ShippedDate',
+                            type: 'sap.ui.model.type.DateTime',
+                            formatOptions: {
+                                style: 'medium'
+                            }
+                        }" />
+
+                        <Label text="Freight" />
+                        <Text text="{Freight}" />
+
+                        <Label text="Ship Name" />
+                        <Text text="{ShipName}" />
+
+                        <Label text="Ship Address" />
+                        <Text text="{ShipAddress}" />
+
+                        <Label text="Ship City" />
+                        <Text text="{ShipCity}" />
+
+                        <Label text="Ship Region" />
+                        <Text text="{ShipRegion}" />
+
+                        <Label text="Ship Postal Code" />
+                        <Text text="{ShipPostalCode}" />
+
+                        <Label text="Ship Country" />
+                        <Text text="{ShipCountry}" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

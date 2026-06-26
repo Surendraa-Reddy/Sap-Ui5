@@ -1,0 +1,102 @@
+<mvc:View
+    controllerName="orders.controller.Employees"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        id="employeesPage"
+        title="Employees">
+
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <SearchField
+                    id="employeeSearch"
+                    width="80%"
+                    placeholder="Search Employee"
+                    liveChange=".onSearch"/>
+
+                <Table
+                    id="employeeTable"
+                    items="{/Employees}"
+                    growing="true"
+                    growingThreshold="20"
+                    inset="false">
+
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Employee List"/>
+                            <ToolbarSpacer/>
+                            <Button
+                                icon="sap-icon://refresh"
+                                press=".onRefresh"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <columns>
+
+                        <Column width="6rem">
+                            <Text text="ID"/>
+                        </Column>
+
+                        <Column width="12rem">
+                            <Text text="Name"/>
+                        </Column>
+
+                        <Column width="10rem">
+                            <Text text="Title"/>
+                        </Column>
+
+                        <Column width="10rem">
+                            <Text text="City"/>
+                        </Column>
+
+                        <Column width="10rem">
+                            <Text text="Country"/>
+                        </Column>
+
+                        <Column width="12rem">
+                            <Text text="Phone"/>
+                        </Column>
+
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <ObjectIdentifier
+                                    title="{EmployeeID}"/>
+
+                                <ObjectIdentifier
+                                    title="{FirstName} {LastName}"
+                                    text="{TitleOfCourtesy}"/>
+
+                                <Text text="{Title}"/>
+
+                                <Text text="{City}"/>
+
+                                <ObjectStatus
+                                    text="{Country}"
+                                    state="Success"/>
+
+                                <Text text="{HomePhone}"/>
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

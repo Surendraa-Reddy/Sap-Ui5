@@ -1,0 +1,74 @@
+<mvc:View
+    controllerName="orders.controller.CustomerDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page
+        title="Customer Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        class="sapUiResponsiveContentPadding">
+
+        <content>
+            <VBox class="sapUiSmallMargin">
+
+                <ObjectHeader
+                    title="{CompanyName}"
+                    intro="{= 'Customer ID: ' + ${CustomerID} }">
+                    <attributes>
+                        <ObjectAttribute text="{ContactName}" />
+                        <ObjectAttribute text="{ContactTitle}" />
+                    </attributes>
+                </ObjectHeader>
+
+                <f:SimpleForm
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="1">
+
+                    <f:content>
+                        <Label text="Customer ID" />
+                        <Text text="{CustomerID}" />
+
+                        <Label text="Company Name" />
+                        <Text text="{CompanyName}" />
+
+                        <Label text="Contact Name" />
+                        <Text text="{ContactName}" />
+
+                        <Label text="Contact Title" />
+                        <Text text="{ContactTitle}" />
+
+                        <Label text="Address" />
+                        <Text text="{Address}" />
+
+                        <Label text="City" />
+                        <Text text="{City}" />
+
+                        <Label text="Region" />
+                        <Text text="{Region}" />
+
+                        <Label text="Postal Code" />
+                        <Text text="{PostalCode}" />
+
+                        <Label text="Country" />
+                        <Text text="{Country}" />
+
+                        <Label text="Phone" />
+                        <Text text="{Phone}" />
+
+                        <Label text="Fax" />
+                        <Text text="{Fax}" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

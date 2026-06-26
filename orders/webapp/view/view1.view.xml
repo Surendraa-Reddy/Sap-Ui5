@@ -1,0 +1,189 @@
+<mvc:View
+    controllerName="orders.controller.view1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page id="page" class="sapUiResponsiveContentPadding">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Title text="Orders Dashboard" level="H2" />
+                </contentLeft>
+                <contentMiddle>
+                    <Text text="Northwind Sales Orders" />
+                </contentMiddle>
+                <contentRight>
+                    <Button
+                     text="Customers"
+                        icon="sap-icon://arrow-right"
+                        type="Transparent"
+                        press=".onPress" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <content>
+            <VBox class="sapUiMediumMarginTop" renderType="Bare">
+
+                <Panel
+                    class="sapUiResponsiveMargin sapUiNoContentPadding"
+                    backgroundDesign="Transparent">
+                    <headerToolbar>
+                        <Toolbar>
+                            <VBox height="10px" class="sapUiTinyMarginBottom">
+                                <Title text="Manage Orders"/>
+                                <Text text="Browse, search and open order details quickly." />
+                            </VBox>
+                            <ToolbarSpacer/>
+                            <ObjectStatus
+                                text="Live OData Data"
+                                state="Success"
+                                icon="sap-icon://connected" />
+                        </Toolbar>
+                    </headerToolbar>
+                </Panel>
+
+                <Panel
+                    class="sapUiResponsiveMargin"
+                    expandable="false">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Search &amp; Actions" level="H4"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <content>
+                        <VBox class="sapUiSmallMargin">
+                            <SearchField
+                                id="searchField"
+                                width="100%"
+                                placeholder="Search by Customer ID, Ship Name or Ship Country"
+                                liveChange=".onSearch"
+                                search=".onSearch" />
+
+                            <Toolbar class="sapUiTinyMarginTop">
+                                <Button
+                                    text="Refresh"
+                                    icon="sap-icon://refresh"
+                                    type="Transparent"
+                                    press=".onRefresh" />
+                                <ToolbarSpacer />
+                                <Text text="Select an order to view complete details" />
+                            </Toolbar>
+                        </VBox>
+                    </content>
+                </Panel>
+
+                <Panel
+                    class="sapUiResponsiveMargin"
+                    height="auto">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Orders" level="H3"/>
+                            <ToolbarSpacer/>
+                            <Text text="Northwind Orders List" />
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <content>
+                    <ScrollContainer >
+                        <Table
+                            id="ordersTable"
+                            width="100%"
+                            inset="false"
+                            mode="None"
+                            growing="true"
+                            growingThreshold="20"
+                            growingScrollToLoad="true"
+                            alternateRowColors="true"
+                            noDataText="No orders found. Try a different search."
+                            items="{
+                                path: '/Orders'
+                            }">
+
+                            <columns>
+                                <Column width="10rem">
+                                    <Text text="Order" />
+                                </Column>
+
+                                <Column width="10rem">
+                                    <Text text="Customer" />
+                                </Column>
+
+                                <Column width="10rem" hAlign="Center">
+                                    <Text text="Employee" />
+                                </Column>
+
+                                <Column minScreenWidth="Tablet" demandPopin="true" width="12rem">
+                                    <Text text="Order Date" />
+                                </Column>
+
+                                <Column minScreenWidth="Tablet" demandPopin="true" width="14rem">
+                                    <Text text="Shipping" />
+                                </Column>
+
+                                <Column minScreenWidth="Desktop" demandPopin="true" width="10rem">
+                                    <Text text="Country" />
+                                </Column>
+
+                                <Column width="10rem" hAlign="Center">
+                                    <Text text="Action" />
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <VBox>
+                                            <ObjectIdentifier
+                                                title="{= 'Order #' + ${OrderID} }"
+                                                text="Sales Order" />
+                                        </VBox>
+
+                                        <VBox>
+                                            <ObjectIdentifier
+                                                title="{CustomerID}"
+                                                text="Customer ID" />
+                                        </VBox>
+
+                                        <ObjectNumber
+                                            number="{EmployeeID}"
+                                            emphasized="false" />
+
+                                        <VBox>
+                                            <Text text="{
+                                                path: 'OrderDate',
+                                                type: 'sap.ui.model.type.DateTime',
+                                                formatOptions: {
+                                                    style: 'medium'
+                                                }
+                                            }" />
+                                        </VBox>
+
+                                        <VBox>
+                                            <ObjectIdentifier
+                                                title="{ShipName}"
+                                                text="{ShipCity}" />
+                                        </VBox>
+
+                                        <ObjectStatus
+                                            text="{ShipCountry}"
+                                            state="Information" />
+
+                                        <Button
+                                            text="View"
+                                            type="Transparent"
+                                            icon="sap-icon://navigation-right-arrow"
+                                            press=".onItemPress" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                        </ScrollContainer>
+                    </content>
+                </Panel>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,161 @@
+{
+  "_version": "1.85.0",
+  "sap.app": {
+    "id": "orders",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.27.0",
+      "toolsId": "de6f4134-c64a-427b-9b25-ecf831013ed4"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.149.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "orders.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "useBatch": false
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "orders.view",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "Routeview1",
+          "pattern": "",
+          "target": [
+            "Targetview1"
+          ]
+        },
+        {
+          "name": "OrderDetails",
+          "pattern": "OrderDetails/{orderId}",
+          "target": [
+            "TargetOrderDetails"
+          ]
+        },
+        {
+          "name": "Customers",
+          "pattern": "Customers",
+          "target": [
+            "Customers"
+          ]
+        },
+        {
+          "name": "CustomerDetails",
+          "pattern": "CustomerDetails/{customerId}",
+          "target": [
+            "CustomerDetails"
+          ]
+        },
+        {
+          "name": "Employees",
+          "pattern": "Employees",
+          "target": [
+            "Employees"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetview1": {
+          "id": "view1",
+          "name": "view1"
+        },
+        "TargetOrderDetails": {
+          "id": "OrderDetails",
+          "name": "OrderDetails"
+        },
+        "Customers": {
+          "id": "Customers",
+          "name": "Customers"
+        },
+        "CustomerDetails": {
+          "id": "CustomerDetails",
+          "name": "CustomerDetails"
+        },
+        "Employees": {
+          "id": "Employees",
+          "name": "Employees"
+        } 
+      }
+    },
+    "rootView": {
+      "viewName": "orders.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
