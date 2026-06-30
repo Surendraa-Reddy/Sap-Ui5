@@ -126,6 +126,32 @@
           "target": [
             "Employees"
           ]
+        },
+        {
+          "name": "EmployeeDetails",
+          "pattern": "EmployeeDetails/{employeeId}",
+          "target": [
+            "EmployeeDetails"
+          ]
+        },
+        {
+          "name": "SalesByCategories",
+          "pattern": "SalesByCategories",
+          "target": [
+            "SalesByCategories"
+          ]
+        },
+        {
+          "name": "OrdersQueries",
+          "pattern": "OrdersQueries",
+          "target": [
+            "OrdersQueries"
+          ]
+        },
+        {
+          "name": "OrdersQueriesDetails",
+          "pattern": "OrdersQueriesDetails/{path}",
+          "target": "OrdersQueriesDetails"
         }
       ],
       "targets": {
@@ -148,7 +174,23 @@
         "Employees": {
           "id": "Employees",
           "name": "Employees"
-        } 
+        },
+        "EmployeeDetails": {
+          "id": "EmployeeDetails",
+          "name": "EmployeeDetails"
+        },
+        "SalesByCategories": {
+          "id": "SalesByCategories",
+          "name": "SalesByCategories"
+        },
+        "OrdersQueries": {
+          "id": "OrdersQueries",
+          "name": "OrdersQueries"
+        },
+        "OrdersQueriesDetails": {
+          "id": "OrdersQueriesDetails",
+          "name": "OrdersQueriesDetails"
+        }
       }
     },
     "rootView": {

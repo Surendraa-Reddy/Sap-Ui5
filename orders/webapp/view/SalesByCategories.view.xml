@@ -1,0 +1,130 @@
+<mvc:View
+    controllerName="orders.controller.SalesByCategories"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        id="salesByCategoriesPage"
+        title="Sales by Categories"
+        class="sapUiResponsiveContentPadding">
+
+        <customHeader>
+            <Bar>
+
+                <contentLeft>
+                    <Title
+                        text="Sales by Categories"
+                        level="H2"/>
+                </contentLeft>
+
+                <contentRight>
+
+                    <Button
+                        text="Customers"
+                        icon="sap-icon://customer"
+                        type="Transparent"
+                        press=".onNavigateToCustomers"/>
+
+                    <Button
+                        text="Employees"
+                        icon="sap-icon://employee"
+                        type="Transparent"
+                        press=".onNavigateToEmployees"/>
+
+                </contentRight>
+
+            </Bar>
+        </customHeader>
+
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <SearchField
+                    id="categorySearch"
+                    width="100%"
+                    placeholder="Search by Category Name or Description"
+                    liveChange=".onSearchCategories"
+                    search=".onSearchCategories"/>
+
+                <Table
+                    id="categoriesTable"
+                    items="{/Categories}"
+                    growing="true"
+                    growingThreshold="20"
+                    growingScrollToLoad="true"
+                    inset="false"
+                    noDataText="No Categories Found">
+
+                    <headerToolbar>
+
+                        <Toolbar>
+
+                            <Title
+                                text="Category List"
+                                level="H2"/>
+
+                            <ToolbarSpacer/>
+
+                            <Button
+                                text="Refresh"
+                                icon="sap-icon://refresh"
+                                press=".onRefresh"/>
+
+                        </Toolbar>
+
+                    </headerToolbar>
+
+                    <columns>
+
+                        <Column width="7rem">
+                            <Text text="ID"/>
+                        </Column>
+
+                        <Column width="14rem">
+                            <Text text="Category"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="Description"/>
+                        </Column>
+                                
+                        <Column>
+                            <Text text="Picture"/>
+                        </Column>
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <ObjectIdentifier
+                                    title="{CategoryID}"/>
+
+                                <ObjectIdentifier
+                                    title="{CategoryName}"/>
+
+                                <Text text="{Description}"/>
+                                <Image
+                                    src="{Picture}"
+                                    width="50px"
+                                    height="50px"/>
+
+   
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,93 @@
+<mvc:View
+    controllerName="orders.controller.EmployeeDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page
+        title="Employee Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        class="sapUiResponsiveContentPadding">
+
+        <content>
+
+            <ObjectHeader
+                title="{FirstName} {LastName}"
+                intro="{Title}"
+                icon="sap-icon://employee">
+
+                <attributes>
+                    <ObjectAttribute text="{TitleOfCourtesy}" />
+                    <ObjectAttribute text="{Country}" />
+                </attributes>
+
+            </ObjectHeader>
+
+            <f:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout">
+
+                <f:content>
+
+                    <Label text="Employee ID"/>
+                    <Text text="{EmployeeID}"/>
+
+                    <Label text="First Name"/>
+                    <Text text="{FirstName}"/>
+
+                    <Label text="Last Name"/>
+                    <Text text="{LastName}"/>
+
+                    <Label text="Title"/>
+                    <Text text="{Title}"/>
+
+                    <Label text="Birth Date"/>
+                    <Text
+                        text="{
+                            path:'BirthDate',
+                            type:'sap.ui.model.type.Date',
+                            formatOptions:{style:'medium'}
+                        }"/>
+
+                    <Label text="Hire Date"/>
+                    <Text
+                        text="{
+                            path:'HireDate',
+                            type:'sap.ui.model.type.Date',
+                            formatOptions:{style:'medium'}
+                        }"/>
+
+                    <Label text="Address"/>
+                    <Text text="{Address}"/>
+
+                    <Label text="City"/>
+                    <Text text="{City}"/>
+
+                    <Label text="Region"/>
+                    <Text text="{Region}"/>
+
+                    <Label text="Postal Code"/>
+                    <Text text="{PostalCode}"/>
+
+                    <Label text="Country"/>
+                    <Text text="{Country}"/>
+
+                    <Label text="Phone"/>
+                    <Text text="{HomePhone}"/>
+
+                    <Label text="Extension"/>
+                    <Text text="{Extension}"/>
+
+                    <Label text="Notes"/>
+                    <Text text="{Notes}"/>
+
+                </f:content>
+
+            </f:SimpleForm>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

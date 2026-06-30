@@ -1,0 +1,108 @@
+<mvc:View
+    controllerName="orders.controller.OrdersQueriesDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page
+        id="orderDetailsPage1"
+        title="Order Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+
+            <ObjectHeader
+                title="{OrderID}"
+                number="{CustomerID}"
+                intro="Order Information"/>
+
+            <f:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout">
+
+                <Label text="Order ID"/>
+                <Text text="{OrderID}"/>
+
+                <Label text="Customer ID"/>
+                <Text text="{CustomerID}"/>
+
+                <Label text="Company Name"/>
+                <Text text="{CompanyName}"/>
+
+                <Label text="Employee ID"/>
+                <Text text="{EmployeeID}"/>
+
+                <Label text="Order Date"/>
+                <Text
+                    text="{
+                        path:'OrderDate',
+                        type:'sap.ui.model.type.Date',
+                        formatOptions:{
+                            style:'medium'
+                        }
+                    }"/>
+
+                <Label text="Required Date"/>
+                <Text
+                    text="{
+                        path:'RequiredDate',
+                        type:'sap.ui.model.type.Date',
+                        formatOptions:{
+                            style:'medium'
+                        }
+                    }"/>
+
+                <Label text="Shipped Date"/>
+                <Text
+                    text="{
+                        path:'ShippedDate',
+                        type:'sap.ui.model.type.Date',
+                        formatOptions:{
+                            style:'medium'
+                        }
+                    }"/>
+
+                <Label text="Freight"/>
+                <Text text="{Freight}"/>
+
+                <Label text="Ship Name"/>
+                <Text text="{ShipName}"/>
+
+                <Label text="Ship Address"/>
+                <Text text="{ShipAddress}"/>
+
+                <Label text="Ship City"/>
+                <Text text="{ShipCity}"/>
+
+                <Label text="Ship Region"/>
+                <Text text="{ShipRegion}"/>
+
+                <Label text="Ship Postal Code"/>
+                <Text text="{ShipPostalCode}"/>
+
+                <Label text="Ship Country"/>
+                <Text text="{ShipCountry}"/>
+
+                <Label text="Address"/>
+                <Text text="{Address}"/>
+
+                <Label text="City"/>
+                <Text text="{City}"/>
+
+                <Label text="Region"/>
+                <Text text="{Region}"/>
+
+                <Label text="Postal Code"/>
+                <Text text="{PostalCode}"/>
+
+                <Label text="Country"/>
+                <Text text="{Country}"/>
+
+            </f:SimpleForm>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

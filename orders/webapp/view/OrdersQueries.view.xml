@@ -1,0 +1,194 @@
+<mvc:View
+    controllerName="orders.controller.OrdersQueries"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        id="ordersQueriesPage"
+        class="sapUiResponsiveContentPadding"
+        title="Orders Queries">
+
+        <!-- Custom Header -->
+        <customHeader>
+            <Bar>
+
+                <contentLeft>
+                    <Title
+                        text="Orders Queries"
+                        level="H2"/>
+                </contentLeft>
+
+                <contentRight>
+
+                    <Button
+                        text="Orders"
+                        icon="sap-icon://sales-order"
+                        type="Transparent"
+                        press=".onNavigateToOrders"/>
+
+                    <Button
+                        text="Customers"
+                        icon="sap-icon://customer"
+                        type="Transparent"
+                        press=".onNavigateToCustomers"/>
+
+                    <Button
+                        text="Employees"
+                        icon="sap-icon://employee"
+                        type="Transparent"
+                        press=".onNavigateToEmployees"/>
+
+                </contentRight>
+
+            </Bar>
+        </customHeader>
+
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <!-- Search -->
+
+                <SearchField
+                    id="ordersSearch"
+                    width="100%"
+                    placeholder="Search by Customer, Company, Ship Name, City or Country"
+                    liveChange=".onSearchOrders"
+                    search=".onSearchOrders"/>
+
+                <!-- Table -->
+
+                <Table
+                    id="ordersQueriesTable"
+                    items="{/Orders_Qries}"
+                    growing="true"
+                    growingThreshold="20"
+                    growingScrollToLoad="true"
+                    inset="false"
+                    noDataText="No Orders Found">
+
+                    <!-- Toolbar -->
+
+                    <headerToolbar>
+
+                        <Toolbar>
+
+                            <Title
+                                text="Orders List"
+                                level="H2"/>
+
+                            <ToolbarSpacer/>
+
+                            <Button
+                                icon="sap-icon://refresh"
+                                text="Refresh"
+                                press=".onRefresh"/>
+
+                        </Toolbar>
+
+                    </headerToolbar>
+
+                    <!-- Columns -->
+
+                    <columns>
+
+                        <Column width="6rem">
+                            <Text text="Order ID"/>
+                        </Column>
+
+                        <Column width="8rem">
+                            <Text text="Customer"/>
+                        </Column>
+
+                        <Column width="14rem">
+                            <Text text="Company"/>
+                        </Column>
+
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true">
+                            <Text text="Order Date"/>
+                        </Column>
+
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true">
+                            <Text text="Ship Name"/>
+                        </Column>
+
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true">
+                            <Text text="Country"/>
+                        </Column>
+                         <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true">
+                            <Text text="City"/>
+                        </Column>
+
+                        <Column
+                            hAlign="End"
+                            width="8rem">
+                            <Text text="Action"/>
+                        </Column>
+
+                    </columns>
+
+                    <!-- Rows -->
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <ObjectIdentifier
+                                    title="{OrderID}"/>
+
+                                <Text
+                                    text="{CustomerID}"/>
+
+                                <ObjectIdentifier
+                                    title="{CompanyName}"
+                                    text="{ShipCity}"/>
+
+                                <Text
+                                    text="{
+                                        path:'OrderDate',
+                                        type:'sap.ui.model.type.Date',
+                                        formatOptions:{
+                                            style:'medium'
+                                        }
+                                    }"/>
+
+                                <Text 
+                                    text="{ShipName}"/>
+
+                                <ObjectStatus
+                                    text="{ShipCountry}"
+                                    state="Success"/>
+                                <Text
+                                    text="{ShipCity}"/> 
+
+                                <Button
+                                    text="View"
+                                    icon="sap-icon://navigation-right-arrow"
+                                    type="Transparent"
+                                    press=".onViewOrder"/>
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

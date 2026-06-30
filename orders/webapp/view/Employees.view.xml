@@ -4,8 +4,26 @@
     xmlns="sap.m">
 
     <Page
-        id="employeesPage"
-        title="Employees">
+        title="Employees"
+        class="sapUiResponsiveContentPadding">
+
+        <customHeader>
+            <Bar>
+
+                <contentLeft>
+                    <Title text="Employees" level="H2"/>
+                </contentLeft>
+
+                <contentRight>
+                    <Button
+                        text="Customers"
+                        icon="sap-icon://customer"
+                        type="Transparent"
+                        press=".onNavigateToCustomers"/>
+                </contentRight>
+
+            </Bar>
+        </customHeader>
 
         <content>
 
@@ -13,25 +31,38 @@
 
                 <SearchField
                     id="employeeSearch"
-                    width="80%"
-                    placeholder="Search Employee"
-                    liveChange=".onSearch"/>
+                    width="100%"
+                    placeholder="Search by First Name, Last Name, City or Country"
+                    liveChange=".onSearchEmployees"
+                    search=".onSearchEmployees"/>
 
                 <Table
-                    id="employeeTable"
+                    id="employeesTable"
                     items="{/Employees}"
                     growing="true"
                     growingThreshold="20"
-                    inset="false">
+                    growingScrollToLoad="true"
+                    inset="false"
+                    mode="None"
+                    noDataText="No employees found">
 
                     <headerToolbar>
+
                         <Toolbar>
-                            <Title text="Employee List"/>
+
+                            <Title
+                                text="Employee List"
+                                level="H2"/>
+
                             <ToolbarSpacer/>
+
                             <Button
+                                text="Refresh"
                                 icon="sap-icon://refresh"
                                 press=".onRefresh"/>
+
                         </Toolbar>
+
                     </headerToolbar>
 
                     <columns>
@@ -40,12 +71,12 @@
                             <Text text="ID"/>
                         </Column>
 
-                        <Column width="12rem">
-                            <Text text="Name"/>
+                        <Column width="14rem">
+                            <Text text="Employee Name"/>
                         </Column>
 
-                        <Column width="10rem">
-                            <Text text="Title"/>
+                        <Column width="14rem">
+                            <Text text="Designation"/>
                         </Column>
 
                         <Column width="10rem">
@@ -60,6 +91,14 @@
                             <Text text="Phone"/>
                         </Column>
 
+                         <Column width="12rem">
+                            <Text text="Address"/>
+                        </Column>
+
+                        <Column width="8rem" hAlign="Center">
+                            <Text text="Action"/>
+                        </Column>
+
                     </columns>
 
                     <items>
@@ -69,7 +108,8 @@
                             <cells>
 
                                 <ObjectIdentifier
-                                    title="{EmployeeID}"/>
+                                    title="{EmployeeID}"
+                                   />
 
                                 <ObjectIdentifier
                                     title="{FirstName} {LastName}"
@@ -84,6 +124,13 @@
                                     state="Success"/>
 
                                 <Text text="{HomePhone}"/>
+                                <Text text="{Address}"/>
+
+                               <Button
+                              text="View"
+                               icon="sap-icon://navigation-right-arrow"
+                              type="Transparent"
+                               press=".onViewEmployee"/>
 
                             </cells>
 
